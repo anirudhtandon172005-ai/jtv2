@@ -189,7 +189,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* ── FEATURED LECTURES ────────────────────────────────────────── */}
       <section className="section home-lectures" aria-label="Featured lectures" style={{ padding: 'clamp(36px, 5vw, 56px) 0', position: 'relative', zIndex: 5 }}>
         <div className="container">

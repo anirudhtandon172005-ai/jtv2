@@ -14,6 +14,8 @@ const Team         = lazy(() => import('./pages/Team'))
 const About        = lazy(() => import('./pages/About'))
 const Preview      = lazy(() => import('./components/ui/StylePreview'))
 const NotFound     = lazy(() => import('./pages/NotFound'))
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
+import AdminRoute from './components/auth/AdminRoute'
 
 // Simple page fallback while a route chunk loads
 function PageFallback() {
@@ -42,10 +44,11 @@ function PageFallback() {
 
 function AppRoutes() {
   const location = useLocation()
+  const isAdminRoute = location.pathname.startsWith('/admin')
 
   return (
     <>
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
 
       <Suspense fallback={<PageFallback />}>
         <Routes>
@@ -57,12 +60,17 @@ function AppRoutes() {
           <Route path="/team"        element={<Team />} />
           <Route path="/about"       element={<About />} />
           <Route path="/preview"     element={<Preview />} />
+          <Route path="/admin/*"     element={
+            <AdminRoute>
+              <AdminDashboard />
+            </AdminRoute>
+          } />
           <Route path="*"            element={<NotFound />} />
         </Routes>
       </Suspense>
 
-      {/* Footer appears on all pages */}
-      <Footer />
+      {/* Footer appears on all pages except admin */}
+      {!isAdminRoute && <Footer />}
     </>
   )
 }
