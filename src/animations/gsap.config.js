@@ -32,6 +32,11 @@ export { gsap, ScrollTrigger }
  * @param {number} options.duration — animation duration (default: 0.8)
  */
 export function revealOnScroll(target, options = {}) {
+  if (typeof target === 'string' && typeof document !== 'undefined') {
+    if (document.querySelectorAll(target).length === 0) return null
+  }
+  if (Array.isArray(target) && target.filter(Boolean).length === 0) return null
+
   const {
     trigger,
     start = 'top 82%',

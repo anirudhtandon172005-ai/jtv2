@@ -1,40 +1,49 @@
+import { useState } from 'react'
 import './TeamCard.css'
 
 /**
  * TeamCard
  * ========
- * Displays a team member with photo, name, role, and contact.
- * Contact is always official college email or LinkedIn — never personal phone.
+ * Displays a team member with photo, name, role, department, and bio.
  */
 export default function TeamCard({ member, className = '' }) {
+  const [imgError, setImgError] = useState(false)
+
   const {
     name,
     role,
     tier,
     department,
     photo,
+    photo_url,
     bio,
     contact,
     contactType,
     linkedin,
   } = member
 
+  const imageSource = !imgError ? (photo || photo_url) : null
+
   const initials = name
-    .split(' ')
-    .map((n) => n[0])
-    .join('')
-    .slice(0, 2)
-    .toUpperCase()
+    ? name
+        .split(' ')
+        .filter(Boolean)
+        .map((n) => n[0])
+        .join('')
+        .slice(0, 2)
+        .toUpperCase()
+    : '?'
 
   return (
-    <article className={`team-card team-card--${tier} ${className}`.trim()}>
+    <article className={`team-card team-card--${tier || 'member'} ${className}`.trim()}>
       {/* Photo / Avatar */}
       <div className="team-card__photo" aria-hidden="true">
-        {photo ? (
+        {imageSource ? (
           <img
-            src={photo}
+            src={imageSource}
             alt={`Photo of ${name}`}
             loading="lazy"
+            onError={() => setImgError(true)}
             className="team-card__photo-img"
           />
         ) : (

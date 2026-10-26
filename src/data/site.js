@@ -58,12 +58,32 @@ export const site = {
     vision:
       'A campus where any student — regardless of department — has access to world-class technical education and a team that makes things.',
     story:
-      'CodeCraft was founded in 2021 by a group of students frustrated by the gap between theoretical coursework and real engineering practice. What started as a small weekly group of 12 has grown into a 200-member community running lectures, workshops, and live projects.',
-    values: [
-      { title: 'Depth over breadth', body: 'We go deep on topics that matter, not shallow on everything.' },
-      { title: 'Ship real things',    body: 'Projects end in deployed products, not slide decks.' },
-      { title: 'Open doors',          body: 'All branches, all years. No gatekeeping.' },
-      { title: 'Teach back',          body: 'The best way to learn is to explain. Everyone leads a session eventually.' },
+      'JYC Technical was founded in 2021 by a group of students frustrated by the gap between theoretical coursework and real engineering practice. What started as a small weekly group has grown into a thriving technical community running hands-on projects, mentorship programs, and national-level events.',
+    pillars: [
+      {
+        number: '01',
+        title: 'Hands-on Project Building',
+        description:
+          'Work on production-grade web applications, AI models, and open-source tools with real university users.',
+      },
+      {
+        number: '02',
+        title: 'Direct Senior Mentorship',
+        description:
+          'Get personal guidance on placements, technical roadmaps, competitive programming, and research publications.',
+      },
+      {
+        number: '03',
+        title: 'National Exposure & Fests',
+        description:
+          'Represent the university in national hackathons, interact with industry judges, and win prize pools.',
+      },
+      {
+        number: '04',
+        title: 'Inclusive Student Community',
+        description:
+          'Collaborate with passionate peers across all departments in a supportive environment where every question matters.',
+      },
     ],
     opportunities: [
       'Give a technical talk to 100+ members',

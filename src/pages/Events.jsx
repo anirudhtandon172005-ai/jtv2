@@ -1,32 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { fetchEvents } from '../services/eventService';
 import { EventCard } from '../components/ui/EventCard';
 import SectionHeader from '../components/ui/SectionHeader';
 import './Events.css';
 
 export default function Events() {
-  const [events, setEvents] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedStatus, setSelectedStatus] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const CATEGORIES = ['All', 'Hackathon', 'Workshop', 'Guest Lecture', 'Tech Fest'];
-  const STATUSES = ['All', 'Upcoming', 'Past'];
-
   useEffect(() => {
     async function loadData() {
       setLoading(true);
-      const data = await fetchEvents({
-        category: selectedCategory,
-        status: selectedStatus,
-        searchQuery
-      });
-      setEvents(data);
+      const data = await fetchEvents();
+      setAllEvents(data);
       setLoading(false);
     }
     loadData();
-  }, [selectedCategory, selectedStatus, searchQuery]);
+  }, []);
+
+  const categories = useMemo(() => {
+    const set = new Set();
+    allEvents.forEach(e => {
+      if (e.category) set.add(e.category);
+    });
+    return ['All', ...Array.from(set)];
+  }, [allEvents]);
+
+  const statuses = ['All', 'Upcoming', 'Past'];
+
+  const filteredEvents = useMemo(() => {
+    let list = allEvents;
+    if (selectedCategory !== 'All') {
+      list = list.filter(e => (e.category || '').toLowerCase() === selectedCategory.toLowerCase());
+    }
+    if (selectedStatus !== 'All') {
+      list = list.filter(e => (e.status || '').toLowerCase() === selectedStatus.toLowerCase());
+    }
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase().trim();
+      list = list.filter(e =>
+        (e.title || '').toLowerCase().includes(q) ||
+        (e.description || '').toLowerCase().includes(q) ||
+        (e.location || '').toLowerCase().includes(q) ||
+        (e.tags || []).some(t => String(t).toLowerCase().includes(q))
+      );
+    }
+    return list;
+  }, [allEvents, selectedCategory, selectedStatus, searchQuery]);
 
   return (
     <div className="page events-page">
@@ -45,7 +68,7 @@ export default function Events() {
             <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-text-muted)', display: 'flex', alignItems: 'center', marginRight: '4px' }}>
               Category:
             </span>
-            {CATEGORIES.map(cat => (
+            {categories.map(cat => (
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
@@ -58,7 +81,7 @@ export default function Events() {
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
             <div className="events-page__tabs">
-              {STATUSES.map(st => (
+              {statuses.map(st => (
                 <button
                   key={st}
                   onClick={() => setSelectedStatus(st)}
@@ -88,7 +111,7 @@ export default function Events() {
           <div style={{ textAlign: 'center', padding: '60px', color: 'var(--color-text-muted)' }}>
             Loading events directory...
           </div>
-        ) : events.length === 0 ? (
+        ) : filteredEvents.length === 0 ? (
           <div style={{
             textAlign: 'center',
             padding: '60px var(--container-px)',
@@ -105,7 +128,7 @@ export default function Events() {
           </div>
         ) : (
           <div className="events-page__grid">
-            {events.map(evt => (
+            {filteredEvents.map(evt => (
               <EventCard key={evt.id} event={evt} />
             ))}
           </div>

@@ -8,7 +8,7 @@ export const socialLinks = [
   {
     id: 'instagram',
     platform: 'Instagram',
-    url: 'https://instagram.com/codecraft_club', // TODO: update
+    url: 'https://www.instagram.com/jyc_technical?dlrf=ZHoydm8zeTR1cGRv',
     label: 'Follow us on Instagram',
   },
   {

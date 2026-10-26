@@ -10,23 +10,23 @@ import boundaryData from '../../data/logo_boundaries.json'
  * - Glowing Eagle Outline Particles & Animated Wave Lines
  * - Interactive Mouse Parallax & Uniform Right-Side Position Across Scroll
  */
-export default function Boundary3DEagleLogo({ mousePosition, scrollProgress }) {
+export default function Boundary3DEagleLogo({ mousePosition, scrollProgress, isLight = false }) {
   const groupRef = useRef()
   const eaglePointsRef = useRef()
   const eagleLinesRef = useRef()
 
   const { eagle } = boundaryData
 
-  // Prepare Eagle Boundary Geometry & Original Fire Colors
+  // Prepare Eagle Boundary Geometry & Theme-Calibrated Colors
   const eagleData = useMemo(() => {
     const count = eagle.length
     const pos = new Float32Array(count * 3)
     const origPos = new Float32Array(count * 3)
     const cols = new Float32Array(count * 3)
 
-    const colorGold    = new THREE.Color('#EED79A')
-    const colorCrimson = new THREE.Color('#EF4444')
-    const colorAmber   = new THREE.Color('#F59E0B')
+    const colorGold    = new THREE.Color(isLight ? '#B8860B' : '#EED79A')
+    const colorCrimson = new THREE.Color(isLight ? '#7F1E1D' : '#EF4444')
+    const colorAmber   = new THREE.Color(isLight ? '#DAA520' : '#F59E0B')
     const tempCol      = new THREE.Color()
 
     for (let i = 0; i < count; i++) {

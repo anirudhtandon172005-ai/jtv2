@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 
@@ -8,7 +9,6 @@ const Home         = lazy(() => import('./pages/Home'))
 const Events       = lazy(() => import('./pages/Events'))
 const Doubts       = lazy(() => import('./pages/Doubts'))
 const DoubtDetails = lazy(() => import('./pages/DoubtDetails'))
-const Hiring       = lazy(() => import('./pages/Hiring'))
 const Lectures     = lazy(() => import('./pages/Lectures'))
 const Team         = lazy(() => import('./pages/Team'))
 const About        = lazy(() => import('./pages/About'))
@@ -53,8 +53,6 @@ function AppRoutes() {
           <Route path="/events"      element={<Events />} />
           <Route path="/doubts"      element={<Doubts />} />
           <Route path="/doubts/:id"  element={<DoubtDetails />} />
-          <Route path="/join"        element={<Hiring />} />
-          <Route path="/hiring"      element={<Hiring />} />
           <Route path="/lectures"    element={<Lectures />} />
           <Route path="/team"        element={<Team />} />
           <Route path="/about"       element={<About />} />
@@ -71,8 +69,10 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }

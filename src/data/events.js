@@ -1,86 +1,41 @@
+/**
+ * EVENTS DATA
+ * ===========
+ * Real events data from Supabase storage and database.
+ */
+
 export const EVENTS_DATA = [
   {
-    id: 'evt-1',
-    title: 'Hack-a-Sol 5.0: National Hackathon',
+    id: '13eb06d9-13f5-45d2-8057-d9a711f40b4e',
+    title: 'JAI 2026: Jaypee Agentic AI Hackathon',
     category: 'Hackathon',
     status: 'Upcoming',
-    date: 'October 24 - 26, 2026',
-    time: '48 Hours Live Codefest',
-    location: 'Main Auditorium & Online Discord',
-    description: 'The flagship 48-hour national hackathon of JYC Technical. Build innovative solutions in AI, Web3, IoT, and Cloud to win prizes worth ₹1.5 Lakhs.',
-    image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
-    tags: ['Hackathon', 'AI/ML', 'Web Development', 'Prize Pool'],
+    date: 'Oct 30 - 31, 2026',
+    time: '24 Hours',
+    location: 'JIIT Wish Town Campus, Sector-128, Noida',
+    description: 'Flagship Agentic AI Hackathon. Build autonomous agents. Tracks in Cybersecurity, Healthcare, NLP, and Open Innovation. ₹15L Prize Pool & ₹1CR Pre-Seed Pool. Inter-college & international participation.',
+    image: 'https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/EVENT/WhatsApp%20Image%202026-10-10%20at%2020.13.57.jpeg',
+    image_url: 'https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/EVENT/WhatsApp%20Image%202026-10-10%20at%2020.13.57.jpeg',
+    tags: ['#JAI2026', '#AgenticAI', '#Hackathon', '#AI', '#Unstop'],
     featured: true,
-    registrationUrl: 'https://forms.gle/hackasol5'
+    registrationUrl: 'https://unstop.com/o/XAfa40i?lb=HG5JUnJm&utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Adhiraox19770',
+    registration_url: 'https://unstop.com/o/XAfa40i?lb=HG5JUnJm&utm_medium=Share&utm_source=online_coding_challenge&utm_campaign=Adhiraox19770'
   },
   {
-    id: 'evt-2',
-    title: 'Mastering Modern Web Architecture with React & Three.js',
-    category: 'Workshop',
-    status: 'Upcoming',
-    date: 'October 05, 2026',
-    time: '5:00 PM - 7:30 PM',
-    location: 'Computer Center Lab 3',
-    description: 'Hands-on technical workshop on building high-performance web applications with 3D canvas visuals, custom shaders, and interactive state management.',
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
-    tags: ['React', 'Three.js', 'Frontend', 'Hands-on'],
-    featured: true,
-    registrationUrl: 'https://forms.gle/react3dworkshop'
-  },
-  {
-    id: 'evt-3',
-    title: 'AI & Generative Models in 2026: Industry Talk',
-    category: 'Guest Lecture',
-    status: 'Upcoming',
-    date: 'September 28, 2026',
-    time: '6:00 PM - 7:30 PM',
-    location: 'LT-2 Lecture Hall',
-    description: 'Special guest session by AI researchers exploring LLM fine-tuning, autonomous agents, and how engineering students can jumpstart AI careers.',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80',
-    tags: ['AI', 'Machine Learning', 'Career', 'Guest Lecture'],
-    featured: false,
-    registrationUrl: 'https://forms.gle/aitalk2026'
-  },
-  {
-    id: 'evt-4',
-    title: 'Murious 18.0: Annual Technical Fest',
-    category: 'Tech Fest',
-    status: 'Upcoming',
-    date: 'November 14 - 16, 2026',
-    time: '3 Days Extravaganza',
-    location: 'Entire JYC Campus',
-    description: 'The annual flagship technical festival featuring code sprints, robo wars, capture the flag (CTF), paper presentations, and tech gaming arenas.',
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
-    tags: ['Tech Fest', 'Robotics', 'CTF', 'Competitions'],
-    featured: true,
-    registrationUrl: 'https://forms.gle/murious18'
-  },
-  {
-    id: 'evt-5',
-    title: 'Git & GitHub open source Bootcamp',
-    category: 'Workshop',
-    status: 'Past',
-    date: 'August 18, 2026',
-    time: '4:00 PM - 6:30 PM',
-    location: 'LT-1',
-    description: 'Comprehensive beginner to advanced workflow bootcamp covering version control, branching strategies, PR reviews, and Hacktoberfest preparation.',
-    image: 'https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=800&q=80',
-    tags: ['Git', 'Open Source', 'DevOps'],
-    featured: false,
-    registrationUrl: null
-  },
-  {
-    id: 'evt-6',
-    title: 'CP Sprint & Data Structures Contest',
+    id: 'f6878a53-d0a7-4e77-88c5-b184595a2dc7',
+    title: 'Ride Hack',
     category: 'Hackathon',
-    status: 'Past',
-    date: 'July 29, 2026',
-    time: '8:00 PM - 11:00 PM',
-    location: 'CodeChef & HackerEarth Platform',
-    description: 'Intense 3-hour speed coding contest designed to benchmark algorithmic skills and prepare students for technical interviews.',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-    tags: ['Competitive Programming', 'DSA', 'Contest'],
+    status: 'Upcoming',
+    date: 'Nov 1, 2026',
+    time: '10 AM - 6 PM',
+    location: 'J128 MPH',
+    description: 'Flagship Hackathon organized by JYC Technical. Hands-on coding, innovation, and intense problem solving.',
+    image: 'https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/posters/poster-1789939272691-k4r32vwq55h.png',
+    image_url: 'https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/posters/poster-1789939272691-k4r32vwq55h.png',
+    tags: ['#RIDEWITHHACK', 'Hackathon'],
     featured: false,
-    registrationUrl: null
+    registrationUrl: null,
+    registration_url: null
   }
 ];
+

@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Immediate Theme Initialization (Zero FOUT) -->
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('jyc-theme');
+          var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+    </script>
+
     <!-- Primary SEO -->
     <title>JYC Technical — Ready to Soar</title>
     <meta name="description" content="JYC Technical is the premier technical student society at Jaypee — building, learning, and soaring together through workshops, projects, and community." />

@@ -59,18 +59,19 @@ export default function About() {
           </div>
         </section>
 
-        {/* Values */}
-        <section className="about-section" aria-label="Values">
+        {/* Pillars */}
+        <section className="about-section" aria-label="Our pillars">
           <SectionHeader
-            eyebrow="What We Believe"
-            title="Values that guide everything."
+            eyebrow="What We Do"
+            title="Four pillars that define JYC Technical."
             align="left"
           />
-          <div className="about-values-grid">
-            {about.values.map((v, i) => (
-              <div key={i} className="about-value-card">
-                <h3 className="about-value-card__title">{v.title}</h3>
-                <p className="about-value-card__body">{v.body}</p>
+          <div className="about-pillars-grid">
+            {about.pillars.map((p, i) => (
+              <div key={i} className="about-pillar-card about-reveal">
+                <span className="about-pillar__number">{p.number}</span>
+                <h3 className="about-pillar__title">{p.title}</h3>
+                <p className="about-pillar__desc">{p.description}</p>
               </div>
             ))}
           </div>

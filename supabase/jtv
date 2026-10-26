@@ -1,0 +1,46 @@
+# JYC Technical — Ready to Soar
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>JYC Technical — Ready to Soar</title>
+    <meta name="description" content="JYC Technical is the premier technical student society at Jaypee — building, learning, and soaring together through workshops, projects, and community." />
+    <meta name="theme-color" content="#0A0806" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:title"       content="JYC Technical — Ready to Soar" />
+    <meta property="og:description" content="The official technical community of Jaypee Youth Club — curious minds, real projects, and hands-on learning." />
+    <meta property="og:url"         content="https://jyctechnical.org" />
+    <meta property="og:image"       content="/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="JYC Technical — Ready to Soar" />
+    <meta name="twitter:description" content="The premier student technical society — community, technology, and people." />
+
+    <!-- Google Fonts — Outfit, Plus Jakarta Sans, Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.jsx?t=1792791231247"></script>
+  </body>
+</html>

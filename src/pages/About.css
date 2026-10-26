@@ -73,7 +73,59 @@
   margin: 0;
 }
 
-/* ── VALUES ─────────────────────────────────────────────────────────────── */
+/* ── PILLARS ────────────────────────────────────────────────────────────── */
+
+.about-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+.about-pillar-card {
+  position: relative;
+  padding: var(--space-10) var(--space-8) var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  transition: border-color var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+}
+
+.about-pillar-card:hover {
+  border-color: var(--color-border-bright);
+  transform: translateY(-4px);
+}
+
+.about-pillar__number {
+  position: absolute;
+  top: var(--space-6);
+  left: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  opacity: 0.15;
+  line-height: 1;
+}
+
+.about-pillar__title {
+  position: relative;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.about-pillar__desc {
+  position: relative;
+  font-size: var(--text-base);
+  color: var(--color-text-dim);
+  line-height: var(--leading-normal);
+  margin: 0;
+  padding-left: var(--space-6);
+}
+
+/* ── VALUES (legacy - kept for any fallback) ─────────────────────────────── */
 
 .about-values-grid {
   display: grid;
@@ -205,9 +257,10 @@
 /* ── RESPONSIVE ─────────────────────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
-  .about-two-col     { grid-template-columns: 1fr; gap: var(--space-4); }
-  .about-mv__grid    { grid-template-columns: 1fr; }
-  .about-values-grid { grid-template-columns: 1fr; }
+  .about-two-col      { grid-template-columns: 1fr; gap: var(--space-4); }
+  .about-mv__grid     { grid-template-columns: 1fr; }
+  .about-pillars-grid { grid-template-columns: 1fr; }
+  .about-values-grid  { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {

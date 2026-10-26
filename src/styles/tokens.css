@@ -47,9 +47,35 @@
   --color-brand-maroon-glow:  rgba(127, 30, 29, 0.35);
   --color-brand-maroon-subtle: rgba(127, 30, 29, 0.12);
 
+  /* Elevated glass & card surfaces */
+  --color-surface-glass:    rgba(18, 16, 13, 0.75);
+  --color-surface-card:     rgba(18, 16, 13, 0.88);
+  --color-surface-input:    var(--jyc-dark);
+  --color-hero-title:       #FFFFFF;
+  --color-nav-bg:           rgba(0, 0, 0, 0.88);
+  --color-modal-overlay:    rgba(0, 0, 0, 0.85);
+
   /* Semantic status */
   --color-success:          #2E8B57;
+  --color-success-subtle:   rgba(46, 139, 87, 0.12);
+  --color-success-border:   rgba(46, 139, 87, 0.30);
   --color-error:            #C0392B;
+  --color-error-subtle:     rgba(192, 57, 43, 0.12);
+  --color-error-border:     rgba(192, 57, 43, 0.30);
+
+  /* Category badge colors — calibrated for dark mode */
+  --color-badge-systems-bg:   rgba(108, 99, 255, 0.10);
+  --color-badge-systems-fg:   #9d95ff;
+  --color-badge-systems-bd:   rgba(108, 99, 255, 0.20);
+  --color-badge-web-bg:       rgba(0, 212, 255, 0.08);
+  --color-badge-web-fg:       #4dd9f7;
+  --color-badge-web-bd:       rgba(0, 212, 255, 0.20);
+  --color-badge-ai-ml-bg:     rgba(34, 197, 94, 0.10);
+  --color-badge-ai-ml-fg:     #4ade80;
+  --color-badge-ai-ml-bd:     rgba(34, 197, 94, 0.20);
+  --color-badge-devops-bg:    rgba(251, 146, 60, 0.10);
+  --color-badge-devops-fg:    #fba05a;
+  --color-badge-devops-bd:    rgba(251, 146, 60, 0.20);
 
   /* ── TYPOGRAPHY ───────────────────────────────────────────────────────── */
   /* Display font: Outfit (emblem compatible, crisp), Body: Inter / Plus Jakarta */
@@ -141,3 +167,97 @@
   --z-modal:   300;
   --z-top:     400;
 }
+
+/* ==========================================================================
+   LUXURY LIGHT MODE TOKENS — THE SOVEREIGN EDITION
+   ========================================================================== */
+
+[data-theme="light"] {
+  /* ── BRAND PALETTE (CALIBRATED FOR WCAG AA CONTRAST ON LIGHT BG) ───────── */
+  --jyc-gold:         #7A4E0D;   /* Deep Burnished Bronze — WCAG AA on white */
+  --jyc-gold-light:   #9E6E16;   /* Rich Bronze */
+  --jyc-gold-muted:   #5C3A0A;   /* Deep Antique Bronze */
+  --jyc-maroon:       #7F1E1D;   /* Imperial Velvet Burgundy */
+  --jyc-maroon-light: #9E2625;
+  --jyc-maroon-dark:  #5C1312;
+
+  /* ── SUPPORTING SURFACES & NEUTRALS ───────────────────────────────────── */
+  --jyc-black:        #FFFFFF;
+  --jyc-dark:         #FFFFFF;   /* Pure Porcelain Surface */
+  --jyc-dark-2:       #F3EFE8;   /* Warm Pearl Linen */
+  --jyc-cream:        #15120E;   /* Deep Espresso Charcoal */
+  --jyc-cream-dim:    #3D352D;   /* Warm Velvet Umber (darker for contrast) */
+  --jyc-muted:        #7A6E5E;   /* Cashmere Stone (darker for contrast) */
+
+  /* ── SEMANTIC TOKEN OVERRIDES ──────────────────────────────────────────── */
+  --color-void:             #FBF9F5;   /* Warm Alabaster / Champagne Ivory */
+  --color-surface:          #FFFFFF;   /* Pure Porcelain */
+  --color-surface-2:        #F3EFE8;   /* Warm Pearl Linen */
+  --color-surface-glass:    rgba(255, 255, 255, 0.92);
+  --color-surface-card:     #FFFFFF;
+  --color-surface-input:    #FFFFFF;
+  --color-hero-title:       #15120E;
+  --color-nav-bg:           rgba(251, 249, 245, 0.92);
+  --color-modal-overlay:    rgba(21, 18, 14, 0.65);
+
+  --color-border:           rgba(122, 78, 13, 0.12);
+  --color-border-bright:    rgba(122, 78, 13, 0.28);
+  --color-border-maroon:    rgba(127, 30, 29, 0.20);
+
+  /* Text colors */
+  --color-text:             #15120E;
+  --color-text-dim:         #3D352D;
+  --color-text-muted:       #7A6E5E;
+
+  /* Accent mapping — Gold calibrated for WCAG AA on light surfaces */
+  --color-accent:           #7A4E0D;
+  --color-accent-hover:     #9E6E16;
+  --color-accent-glow:      rgba(122, 78, 13, 0.18);
+  --color-accent-subtle:    rgba(122, 78, 13, 0.10);
+
+  --color-brand-maroon:     #7F1E1D;
+  --color-brand-maroon-hover: #9E2625;
+  --color-brand-maroon-glow:  rgba(127, 30, 29, 0.14);
+  --color-brand-maroon-subtle: rgba(127, 30, 29, 0.06);
+
+  /* Status — calibrated for light mode */
+  --color-success:          #166534;   /* Darker green for contrast */
+  --color-success-subtle:   rgba(22, 101, 52, 0.10);
+  --color-success-border:   rgba(22, 101, 52, 0.25);
+  --color-error:            #B3261E;
+  --color-error-subtle:     rgba(179, 38, 30, 0.10);
+  --color-error-border:     rgba(179, 38, 30, 0.25);
+
+  /* Category badge colors — calibrated for light mode (WCAG AA) */
+  --color-badge-systems-bg:   rgba(79, 70, 229, 0.12);
+  --color-badge-systems-fg:   #4f46e5;
+  --color-badge-systems-bd:   rgba(79, 70, 229, 0.25);
+  --color-badge-web-bg:       rgba(14, 165, 233, 0.12);
+  --color-badge-web-fg:       #0ea5e9;
+  --color-badge-web-bd:       rgba(14, 165, 233, 0.25);
+  --color-badge-ai-ml-bg:     rgba(22, 163, 74, 0.12);
+  --color-badge-ai-ml-fg:     #16a34a;
+  --color-badge-ai-ml-bd:     rgba(22, 163, 74, 0.25);
+  --color-badge-devops-bg:    rgba(234, 88, 12, 0.12);
+  --color-badge-devops-fg:    #ea580c;
+  --color-badge-devops-bd:    rgba(234, 88, 12, 0.25);
+
+  /* Multi-layer soft diffusion luxury shadows */
+  --shadow-sm:     0 1px 3px rgba(35, 25, 15, 0.04), 0 1px 2px rgba(35, 25, 15, 0.02);
+  --shadow-md:     0 4px 16px -2px rgba(35, 25, 15, 0.06), 0 2px 6px -1px rgba(35, 25, 15, 0.04);
+  --shadow-lg:     0 16px 40px -6px rgba(35, 25, 15, 0.08), 0 6px 16px -3px rgba(35, 25, 15, 0.04);
+  --shadow-gold:   0 4px 24px rgba(122, 78, 13, 0.20);
+  --shadow-maroon: 0 4px 24px rgba(127, 30, 29, 0.14);
+}
+
+/* Smooth transition when toggling themes */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              color 300ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
