@@ -52,52 +52,19 @@ export const site = {
 
   // About sections
   about: {
-    founded: '2021',
+    title: 'About JTV – JYC Technical',
+    tagline: 'Where Curiosity Meets Innovation.',
+    intro:
+      'JTV is the technical community of JYC, bringing together curious minds, passionate learners, and aspiring innovators with a shared drive to explore technology, develop new skills, and prepare for the opportunities ahead.',
+    technical:
+      'We believe that learning goes beyond classrooms and career readiness goes beyond technical knowledge. From strengthening programming fundamentals in C and C++ to exploring emerging technologies such as Agentic AI, GitHub, and modern development tools, we encourage students to experiment, build, and stay curious about the ever-evolving world of technology.',
+    beyondAcademics:
+      'But technical expertise is only one part of the journey. We place equal importance on developing the skills that help students thrive beyond academics. Through sessions on communication, problem-solving, teamwork, leadership, interview preparation, resume building, professional etiquette, and personality development, we aim to bridge the gap between academic learning and industry expectations.',
+    learningByDoing:
+      'Through interactive workshops, tech quizzes, coding challenges, hackathons, expert sessions, and hands-on projects, we create opportunities for students to learn by doing, collaborate with like-minded individuals, and turn ideas into meaningful solutions.',
+    ethos:
+      "At JTV, it doesn't matter where your journey begins or how much you already know. What matters is the willingness to learn, the courage to explore, and the determination to grow.",
     mission:
-      'To build a community of serious, curious, and collaborative engineers who learn by doing — not just by attending.',
-    vision:
-      'A campus where any student — regardless of department — has access to world-class technical education and a team that makes things.',
-    story:
-      'JYC Technical was founded in 2021 by a group of students frustrated by the gap between theoretical coursework and real engineering practice. What started as a small weekly group has grown into a thriving technical community running hands-on projects, mentorship programs, and national-level events.',
-    pillars: [
-      {
-        number: '01',
-        title: 'Hands-on Project Building',
-        description:
-          'Work on production-grade web applications, AI models, and open-source tools with real university users.',
-      },
-      {
-        number: '02',
-        title: 'Direct Senior Mentorship',
-        description:
-          'Get personal guidance on placements, technical roadmaps, competitive programming, and research publications.',
-      },
-      {
-        number: '03',
-        title: 'National Exposure & Fests',
-        description:
-          'Represent the university in national hackathons, interact with industry judges, and win prize pools.',
-      },
-      {
-        number: '04',
-        title: 'Inclusive Student Community',
-        description:
-          'Collaborate with passionate peers across all departments in a supportive environment where every question matters.',
-      },
-    ],
-    opportunities: [
-      'Give a technical talk to 100+ members',
-      'Lead a semester-long project team',
-      'Collaborate with students from 8+ departments',
-      'Get mentorship from seniors who work at top companies',
-      'Build your portfolio with real shipped software',
-    ],
-    achievements: [
-      '80+ technical lectures archived and accessible',
-      'Won inter-college hackathon (2023, 2024)',
-      'Open-source tools used by students at 5 other colleges',
-      '3 alumni now at FAANG companies',
-      'Active GitHub org with 40+ repositories',
-    ],
+      "We don't just help students learn technology. We help them build the skills, confidence, and mindset to shape their future.",
   },
 }

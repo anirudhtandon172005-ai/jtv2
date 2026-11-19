@@ -11,13 +11,13 @@
 .admin-login-card {
   width: 100%;
   max-width: 440px;
-  background: rgba(18, 16, 13, 0.85);
+  background: var(--color-surface-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--color-border-bright);
   border-radius: var(--radius-xl);
   padding: clamp(28px, 4vw, 40px);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 35px var(--color-brand-maroon-glow);
+  box-shadow: var(--shadow-lg), 0 0 35px var(--color-brand-maroon-glow);
   display: flex;
   flex-direction: column;
   gap: 24px;

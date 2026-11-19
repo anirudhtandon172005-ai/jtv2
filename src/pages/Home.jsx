@@ -14,6 +14,7 @@ import { WhyUsSection } from '../components/sections/WhyUsSection'
 import { EventsSection } from '../components/sections/EventsSection'
 import { fetchDoubts } from '../services/doubtService'
 import { DoubtCard } from '../components/ui/DoubtCard'
+import AskDoubtModal from '../components/ui/AskDoubtModal'
 import './Home.css'
 
 // Lazy-load heavy 3D canvas — Three.js persistent across Home page
@@ -31,6 +32,7 @@ export default function Home() {
   const prefersReducedMotion = useReducedMotion()
 
   const [recentDoubts, setRecentDoubts] = useState([])
+  const [showAskModal, setShowAskModal] = useState(false)
 
   useEffect(() => {
     async function loadDoubts() {
@@ -124,7 +126,7 @@ export default function Home() {
             <Button href="/events" variant="underline" size="lg">
               Explore Events →
             </Button>
-            <Button href="/doubts" variant="underline" size="lg">
+            <Button onClick={() => setShowAskModal(true)} variant="underline" size="lg">
               Ask a Doubt →
             </Button>
             <Button href="/team" variant="underline" size="lg">
@@ -161,24 +163,60 @@ export default function Home() {
               </h2>
             </div>
 
-            <Link
-              to="/doubts"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                color: 'var(--color-accent)',
-                fontFamily: 'var(--font-display)',
-                fontSize: 'var(--text-sm)',
-                fontWeight: 'var(--weight-semibold)',
-                textDecoration: 'none'
-              }}
-            >
-              Ask or Answer a Doubt
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+              <button
+                onClick={() => setShowAskModal(true)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: 'var(--color-surface)',
+                  background: 'var(--color-accent)',
+                  padding: '9px 18px',
+                  borderRadius: 'var(--radius-pill)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'var(--text-xs)',
+                  fontWeight: 'var(--weight-semibold)',
+                  letterSpacing: 'var(--tracking-wide)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  boxShadow: 'var(--shadow-sm)',
+                  transition: 'all var(--duration-fast) var(--ease-out)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = 'var(--color-accent-hover)';
+                  e.currentTarget.style.transform = 'translateY(-1px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = 'var(--color-accent)';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M12 4v16m8-8H4" />
+                </svg>
+                Ask a Doubt
+              </button>
+
+              <Link
+                to="/doubts"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: 'var(--color-accent)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 'var(--text-sm)',
+                  fontWeight: 'var(--weight-semibold)',
+                  textDecoration: 'none'
+                }}
+              >
+                Browse All Doubts
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Link>
+            </div>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '24px' }}>
@@ -234,6 +272,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Ask Doubt Modal - In-Page Google Form Embed */}
+      <AskDoubtModal isOpen={showAskModal} onClose={() => setShowAskModal(false)} />
     </div>
   )
 }

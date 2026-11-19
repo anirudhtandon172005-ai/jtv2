@@ -32,7 +32,7 @@ export function EventCard({ event }) {
             }}
           />
         ) : (
-          <div className="event-card__placeholder" style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, rgba(127,30,29,0.3) 0%, rgba(18,16,13,0.9) 100%)' }} />
+          <div className="event-card__placeholder" style={{ width: '100%', height: '100%', background: 'linear-gradient(135deg, var(--color-brand-maroon-subtle) 0%, var(--color-surface-2) 100%)' }} />
         )}
         <div className="event-card__overlay" />
         <span className={`event-card__status-badge ${isUpcoming ? 'event-card__status-badge--upcoming' : 'event-card__status-badge--past'}`}>

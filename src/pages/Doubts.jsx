@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { fetchDoubts } from '../services/doubtService';
 import { DoubtCard } from '../components/ui/DoubtCard';
 import SectionHeader from '../components/ui/SectionHeader';
+import AskDoubtModal from '../components/ui/AskDoubtModal';
 import './Events.css';
 import './Doubts.css';
 
 export default function Doubts() {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [doubts, setDoubts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('newest');
   const [searchQuery, setSearchQuery] = useState('');
-  const [showAskModal, setShowAskModal] = useState(false);
+  const [showAskModal, setShowAskModal] = useState(() => searchParams.get('ask') === 'true');
   const [isFallback, setIsFallback] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get('ask') === 'true') {
+      setShowAskModal(true);
+    }
+  }, [searchParams]);
+
+  const handleCloseModal = () => {
+    setShowAskModal(false);
+    if (searchParams.get('ask') === 'true') {
+      const newParams = new URLSearchParams(searchParams);
+      newParams.delete('ask');
+      setSearchParams(newParams, { replace: true });
+    }
+  };
 
   const CATEGORIES = ['All', 'Web Development', 'AI / ML', 'Competitive Programming', 'Hackathons', 'General Technical'];
 
@@ -132,7 +150,7 @@ export default function Doubts() {
           <div style={{
             textAlign: 'center',
             padding: '60px var(--container-px)',
-            background: 'rgba(18, 16, 13, 0.6)',
+            background: 'var(--color-surface-2)',
             border: '1px dashed var(--color-border)',
             borderRadius: 'var(--radius-lg)',
             display: 'flex',
@@ -167,55 +185,7 @@ export default function Doubts() {
       </div>
 
       {/* Ask Doubt Modal - Google Form Embed */}
-      {showAskModal && (
-        <div className="doubts-page__modal-overlay" onClick={() => setShowAskModal(false)}>
-          <div 
-            className="doubts-page__modal-content" 
-            onClick={(e) => e.stopPropagation()}
-            style={{ 
-              width: '100%', 
-              maxWidth: '800px', 
-              height: '85vh', 
-              padding: '0', 
-              overflow: 'hidden',
-              display: 'flex',
-              flexDirection: 'column'
-            }}
-          >
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              padding: '16px 24px',
-              borderBottom: '1px solid var(--color-border)',
-              background: 'rgba(18, 16, 13, 0.9)'
-            }}>
-              <h3 style={{ margin: 0, fontFamily: 'var(--font-display)', color: 'var(--color-text)' }}>Submit a Doubt</h3>
-              <button 
-                onClick={() => setShowAskModal(false)}
-                style={{
-                  background: 'transparent', border: 'none', color: 'var(--color-text-muted)',
-                  cursor: 'pointer', fontSize: '24px', lineHeight: 1
-                }}
-              >
-                &times;
-              </button>
-            </div>
-            <iframe 
-              src="https://docs.google.com/forms/d/e/1FAIpQLSdINFkIy_5hlER0FfHUYdLHDJUai8SmH9b1O5FDmkqKnqM7ZA/viewform?embedded=true" 
-              width="100%" 
-              height="100%" 
-              frameBorder="0" 
-              marginHeight="0" 
-              marginWidth="0"
-              style={{ flexGrow: 1 }}
-              title="Submit Doubt Form"
-            >
-              Loading…
-            </iframe>
-          </div>
-        </div>
-      )}
+      <AskDoubtModal isOpen={showAskModal} onClose={handleCloseModal} />
     </div>
   );
 }

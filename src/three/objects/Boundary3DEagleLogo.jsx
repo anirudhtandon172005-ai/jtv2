@@ -24,9 +24,9 @@ export default function Boundary3DEagleLogo({ mousePosition, scrollProgress, isL
     const origPos = new Float32Array(count * 3)
     const cols = new Float32Array(count * 3)
 
-    const colorGold    = new THREE.Color(isLight ? '#B8860B' : '#EED79A')
+    const colorGold    = new THREE.Color(isLight ? '#854D0E' : '#EED79A')
     const colorCrimson = new THREE.Color(isLight ? '#7F1E1D' : '#EF4444')
-    const colorAmber   = new THREE.Color(isLight ? '#DAA520' : '#F59E0B')
+    const colorAmber   = new THREE.Color(isLight ? '#9A3412' : '#F59E0B')
     const tempCol      = new THREE.Color()
 
     for (let i = 0; i < count; i++) {
@@ -102,23 +102,30 @@ export default function Boundary3DEagleLogo({ mousePosition, scrollProgress, isL
       linePositions,
       count,
     }
-  }, [eagle])
+  }, [eagle, isLight])
 
-  // Particle Glow Texture — Authentic Fire Amber Glow
+  // Particle Glow Texture — Authentic Fire Amber Glow in Dark, Deep Crimson/Bronze in Light
   const particleTexture = useMemo(() => {
     const canvas = document.createElement('canvas')
     canvas.width = 64
     canvas.height = 64
     const ctx = canvas.getContext('2d')
     const grad = ctx.createRadialGradient(32, 32, 0, 32, 32, 32)
-    grad.addColorStop(0, 'rgba(255, 255, 255, 1)')
-    grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.9)')
-    grad.addColorStop(0.7, 'rgba(239, 68, 68, 0.45)')
-    grad.addColorStop(1, 'rgba(0, 0, 0, 0)')
+    if (isLight) {
+      grad.addColorStop(0, 'rgba(127, 30, 29, 1)')
+      grad.addColorStop(0.35, 'rgba(154, 52, 18, 0.9)')
+      grad.addColorStop(0.7, 'rgba(133, 77, 14, 0.45)')
+      grad.addColorStop(1, 'rgba(127, 30, 29, 0)')
+    } else {
+      grad.addColorStop(0, 'rgba(255, 255, 255, 1)')
+      grad.addColorStop(0.35, 'rgba(245, 158, 11, 0.9)')
+      grad.addColorStop(0.7, 'rgba(239, 68, 68, 0.45)')
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)')
+    }
     ctx.fillStyle = grad
     ctx.fillRect(0, 0, 64, 64)
     return new THREE.CanvasTexture(canvas)
-  }, [])
+  }, [isLight])
 
   // Animation Loop — Persistent Uniform Right-Side Positioning with Controlled Scroll Rotation
   useFrame((state) => {
@@ -219,13 +226,13 @@ export default function Boundary3DEagleLogo({ mousePosition, scrollProgress, isL
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.085}
+          size={isLight ? 0.088 : 0.085}
           vertexColors={true}
           map={particleTexture}
           transparent={true}
-          opacity={0.95}
+          opacity={isLight ? 0.95 : 0.95}
           depthWrite={false}
-          blending={THREE.AdditiveBlending}
+          blending={isLight ? THREE.NormalBlending : THREE.AdditiveBlending}
         />
       </points>
 
@@ -238,10 +245,10 @@ export default function Boundary3DEagleLogo({ mousePosition, scrollProgress, isL
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color="#EF4444"
+          color={isLight ? '#7F1E1D' : '#EF4444'}
           transparent={true}
-          opacity={0.25}
-          blending={THREE.AdditiveBlending}
+          opacity={isLight ? 0.40 : 0.25}
+          blending={isLight ? THREE.NormalBlending : THREE.AdditiveBlending}
         />
       </lineSegments>
     </group>

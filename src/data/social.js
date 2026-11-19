@@ -1,7 +1,6 @@
 /**
- * SOCIAL LINKS
- * ============
- * Update URLs to point to your club's real accounts.
+ * SOCIAL & CONNECT LINKS
+ * ======================
  */
 
 export const socialLinks = [
@@ -12,27 +11,17 @@ export const socialLinks = [
     label: 'Follow us on Instagram',
   },
   {
-    id: 'x',
-    platform: 'X',
-    url: 'https://x.com/codecraft_club', // TODO: update
-    label: 'Follow us on X',
+    id: 'anirudh',
+    icon: 'linkedin',
+    platform: 'Anirudh',
+    url: 'https://www.linkedin.com/in/anirudh-tandon-855496388?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+    label: 'Connect with Anirudh on LinkedIn',
   },
   {
-    id: 'linkedin',
-    platform: 'LinkedIn',
-    url: 'https://linkedin.com/company/codecraft-club', // TODO: update
-    label: 'Connect on LinkedIn',
-  },
-  {
-    id: 'youtube',
-    platform: 'YouTube',
-    url: 'https://youtube.com/@codecraft_club', // TODO: update
-    label: 'Watch on YouTube',
-  },
-  {
-    id: 'github',
-    platform: 'GitHub',
-    url: 'https://github.com/codecraft-club', // TODO: update
-    label: 'View our GitHub',
+    id: 'aryan',
+    icon: 'linkedin',
+    platform: 'Aryan',
+    url: 'https://www.linkedin.com',
+    label: 'Connect with Aryan on LinkedIn',
   },
 ]

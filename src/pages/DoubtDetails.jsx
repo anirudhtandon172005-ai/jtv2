@@ -122,7 +122,7 @@ export default function DoubtDetails() {
             <div style={{
               textAlign: 'center',
               padding: '36px var(--container-px)',
-              background: 'rgba(18, 16, 13, 0.6)',
+              background: 'var(--color-surface-2)',
               border: '1px dashed var(--color-border)',
               borderRadius: 'var(--radius-lg)'
             }}>

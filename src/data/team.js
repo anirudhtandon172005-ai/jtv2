@@ -6,6 +6,28 @@
 
 export const team = [
   {
+    "id": "founder-001",
+    "name": "Renesha Sagar",
+    "role": "Co-Head and Co-founder",
+    "tier": "head",
+    "department": "Technical",
+    "photo": "https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/team/renesha_sagar.jpg",
+    "fallback_photo": "/team/renesha_sagar.jpg",
+    "bio": "Technical approach and executive",
+    "display_order": 1
+  },
+  {
+    "id": "founder-002",
+    "name": "Madhav Gairola",
+    "role": "Co-Head and Co-founder",
+    "tier": "head",
+    "department": "Technical",
+    "photo": "https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/team/madhav_gairola.jpg",
+    "fallback_photo": "/team/madhav_gairola.jpg",
+    "bio": "Technical operations and executive",
+    "display_order": 2
+  },
+  {
     "id": "head-001",
     "name": "Adhira Sethi",
     "role": "Management Head",
@@ -13,7 +35,7 @@ export const team = [
     "department": "Management",
     "photo": "https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/members/Adhira%20Sethi_management%20head.JPG",
     "bio": "Oversees club strategy, management workflows, and organizational operations.",
-    "display_order": 1
+    "display_order": 3
   },
   {
     "id": "head-002",
@@ -23,7 +45,7 @@ export const team = [
     "department": "Social Media & PR",
     "photo": "https://zqctadeszfnpnqopiamb.supabase.co/storage/v1/object/public/event-banners/members/Srishti%20mehta_%20Social%20head.jpg",
     "bio": "Leads social outreach, branding, and digital presence across university platforms.",
-    "display_order": 2
+    "display_order": 4
   },
   {
     "id": "lead-001",

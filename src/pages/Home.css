@@ -87,11 +87,11 @@
 /* ── STATS ──────────────────────────────────────────────────────────────── */
 
 .home-stats {
-  background: rgba(10, 8, 6, 0.40);
+  background: var(--color-surface-glass);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid rgba(238, 215, 154, 0.12);
-  border-bottom: 1px solid rgba(238, 215, 154, 0.12);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .home-stats__grid {
@@ -107,7 +107,7 @@
   gap: var(--space-2);
   padding: var(--space-10) var(--space-6);
   text-align: center;
-  border-right: 1px solid rgba(238, 215, 154, 0.12);
+  border-right: 1px solid var(--color-border);
 }
 
 .home-stat:last-child {
@@ -145,19 +145,22 @@
 
 .home-activity-card {
   padding: var(--space-8);
-  background: rgba(14, 11, 8, 0.45);
+  background: var(--color-surface-glass);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(238, 215, 154, 0.15);
+  border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
   transition:
     border-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out);
+    transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out);
 }
 
 .home-activity-card:hover {
-  border-color: rgba(238, 215, 154, 0.45);
+  border-color: var(--color-border-bright);
   transform: translateY(-3px);
+  box-shadow: var(--shadow-md), 0 0 20px var(--color-accent-glow);
 }
 
 .home-activity-card__icon {
@@ -231,12 +234,13 @@
   position: relative;
   text-align: center;
   padding: var(--space-20) var(--space-8);
-  background: rgba(14, 11, 8, 0.50);
+  background: var(--color-surface-glass);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(238, 215, 154, 0.20);
+  border: 1px solid var(--color-border-bright);
   border-radius: var(--radius-2xl);
   overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
 .home-connect__glow {

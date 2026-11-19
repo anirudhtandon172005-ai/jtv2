@@ -10,6 +10,7 @@ const navLinks = [
   { to: '/lectures', label: 'Lectures'   },
   { to: '/team',     label: 'Team'       },
   { to: '/about',    label: 'About'      },
+  { to: '/memories', label: 'Memories'   },
 ]
 
 // Social icon SVGs
@@ -99,7 +100,7 @@ export default function Footer() {
                     className="footer__social-link"
                     aria-label={s.label}
                   >
-                    <SocialIcon id={s.id} />
+                    <SocialIcon id={s.icon || s.id} />
                     <span>{s.platform}</span>
                   </a>
                 </li>

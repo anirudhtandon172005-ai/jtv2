@@ -12,6 +12,7 @@ const DoubtDetails = lazy(() => import('./pages/DoubtDetails'))
 const Lectures     = lazy(() => import('./pages/Lectures'))
 const Team         = lazy(() => import('./pages/Team'))
 const About        = lazy(() => import('./pages/About'))
+const Memories     = lazy(() => import('./pages/Memories'))
 const Preview      = lazy(() => import('./components/ui/StylePreview'))
 const NotFound     = lazy(() => import('./pages/NotFound'))
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'))
@@ -59,6 +60,7 @@ function AppRoutes() {
           <Route path="/lectures"    element={<Lectures />} />
           <Route path="/team"        element={<Team />} />
           <Route path="/about"       element={<About />} />
+          <Route path="/memories"    element={<Memories />} />
           <Route path="/preview"     element={<Preview />} />
           <Route path="/admin/*"     element={
             <AdminRoute>

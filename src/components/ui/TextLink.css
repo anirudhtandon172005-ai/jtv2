@@ -5,13 +5,13 @@
   font-family: var(--font-body);
   font-size: var(--text-base);
   font-weight: var(--weight-medium);
-  color: var(--jyc-gold);
+  color: var(--color-accent);
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .text-link:hover {
-  color: var(--jyc-gold-light);
+  color: var(--color-accent-hover);
 }
 
 .text-link__arrow {

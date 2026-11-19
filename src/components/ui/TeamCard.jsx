@@ -7,8 +7,6 @@ import './TeamCard.css'
  * Displays a team member with photo, name, role, department, and bio.
  */
 export default function TeamCard({ member, className = '' }) {
-  const [imgError, setImgError] = useState(false)
-
   const {
     name,
     role,
@@ -16,13 +14,31 @@ export default function TeamCard({ member, className = '' }) {
     department,
     photo,
     photo_url,
+    fallback_photo,
     bio,
     contact,
     contactType,
     linkedin,
   } = member
 
-  const imageSource = !imgError ? (photo || photo_url) : null
+  const [currentSrc, setCurrentSrc] = useState(photo || photo_url)
+  const [imgError, setImgError] = useState(false)
+
+  const handleImgError = () => {
+    if (fallback_photo && currentSrc !== fallback_photo) {
+      setCurrentSrc(fallback_photo)
+      return
+    }
+    if (name?.toLowerCase().includes('renesha') && currentSrc !== '/team/renesha_sagar.jpg') {
+      setCurrentSrc('/team/renesha_sagar.jpg')
+      return
+    }
+    if (name?.toLowerCase().includes('madhav') && currentSrc !== '/team/madhav_gairola.jpg') {
+      setCurrentSrc('/team/madhav_gairola.jpg')
+      return
+    }
+    setImgError(true)
+  }
 
   const initials = name
     ? name
@@ -38,12 +54,12 @@ export default function TeamCard({ member, className = '' }) {
     <article className={`team-card team-card--${tier || 'member'} ${className}`.trim()}>
       {/* Photo / Avatar */}
       <div className="team-card__photo" aria-hidden="true">
-        {imageSource ? (
+        {!imgError && currentSrc ? (
           <img
-            src={imageSource}
+            src={currentSrc}
             alt={`Photo of ${name}`}
             loading="lazy"
-            onError={() => setImgError(true)}
+            onError={handleImgError}
             className="team-card__photo-img"
           />
         ) : (

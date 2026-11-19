@@ -1,0 +1,530 @@
+/* ==========================================================================
+   MEMORIES PAGE STYLING — EDITORIAL ZIGZAG MAGAZINE TIMELINE
+   ========================================================================== */
+
+.memories-page {
+  padding-top: calc(var(--nav-height) + 24px);
+  padding-bottom: var(--section-py);
+  overflow-x: hidden;
+}
+
+.memories-header {
+  margin-bottom: var(--space-16);
+}
+
+.memories-section {
+  position: relative;
+  margin-bottom: var(--space-24);
+}
+
+/* ── TIMELINE SPINE ─────────────────────────────────────────────────────── */
+
+.memories-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.memories-timeline__stem {
+  position: absolute;
+  top: 40px;
+  bottom: 80px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-border-bright) 10%,
+    var(--color-accent) 50%,
+    var(--color-border-bright) 90%,
+    transparent 100%
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── TIMELINE ROW (ALTERNATING ZIGZAG) ──────────────────────────────────── */
+
+.memory-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  margin-bottom: var(--space-24);
+}
+
+/* Odd row (default): Media on Left (Col 1), Story on Right (Col 2) */
+.memory-row .memory-col--media {
+  grid-column: 1;
+}
+.memory-row .memory-col--story {
+  grid-column: 2;
+}
+
+/* Even row (reverse): Story on Left (Col 1), Media on Right (Col 2) */
+.memory-row--reverse .memory-col--media {
+  grid-column: 2;
+}
+.memory-row--reverse .memory-col--story {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Center Stem Marker Node */
+.memory-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 0 20px var(--color-accent-glow);
+  pointer-events: none;
+}
+
+.memory-node__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+/* ── VISUAL IMAGE FRAME ─────────────────────────────────────────────────── */
+
+.memory-frame {
+  position: relative;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.memory-frame:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-border-bright);
+  box-shadow: var(--shadow-lg), 0 0 32px var(--color-accent-glow);
+}
+
+.memory-frame__inner {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: var(--color-surface-2);
+}
+
+.memory-frame__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--duration-slow) var(--ease-out);
+  display: block;
+}
+
+.memory-frame:hover .memory-frame__img {
+  transform: scale(1.04);
+}
+
+/* Hover overlay with zoom icon */
+.memory-frame__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.memory-frame:hover .memory-frame__overlay {
+  opacity: 1;
+}
+
+.memory-frame__zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-border-bright);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(6px);
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.memory-frame:hover .memory-frame__zoom-btn {
+  transform: translateY(0);
+}
+
+.memory-frame__caption {
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+/* ── STORY CARD ─────────────────────────────────────────────────────────── */
+
+.memory-card {
+  position: relative;
+  padding: var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.memory-card:hover {
+  border-color: var(--color-border-bright);
+  box-shadow: var(--shadow-md);
+}
+
+.memory-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.memory-card__chapter {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  border: 1px solid var(--color-border);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.memory-card__tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.memory-card__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.memory-card__subtitle {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-accent);
+  margin: 0 0 var(--space-4) 0;
+  line-height: var(--leading-snug);
+}
+
+.memory-card__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-dim);
+  line-height: var(--leading-normal);
+  margin: 0 0 var(--space-5) 0;
+}
+
+.memory-card__quote {
+  position: relative;
+  margin: 0 0 var(--space-5) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-accent-subtle);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: var(--leading-snug);
+}
+
+.memory-card__footer {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.memory-card__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.memory-pill {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-dim);
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  padding: 4px 10px;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.memory-pill:hover {
+  color: var(--color-accent);
+  border-color: var(--color-border-bright);
+}
+
+/* ── CALL TO ACTION ─────────────────────────────────────────────────────── */
+
+.memories-cta__inner {
+  position: relative;
+  text-align: center;
+  padding: var(--space-20) var(--space-8);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+}
+
+.memories-cta__glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
+  background: radial-gradient(ellipse, var(--color-accent-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.memories-cta__title {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  position: relative;
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.memories-cta__desc {
+  font-size: var(--text-lg);
+  color: var(--color-text-dim);
+  max-width: 520px;
+  margin: 0 auto var(--space-8);
+  position: relative;
+  line-height: var(--leading-normal);
+}
+
+.memories-cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* ── LIGHTBOX MODAL ─────────────────────────────────────────────────────── */
+
+.memory-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  animation: fadeIn 200ms ease-out;
+}
+
+.memory-lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: var(--color-modal-overlay);
+  backdrop-filter: blur(8px);
+}
+
+.memory-lightbox__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-bright);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+}
+
+.memory-lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-surface-glass);
+  border: 1px solid var(--color-border-bright);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.memory-lightbox__close:hover {
+  background: var(--color-accent);
+  color: var(--color-void);
+  transform: rotate(90deg);
+}
+
+.memory-lightbox__image-wrap {
+  width: 100%;
+  max-height: 560px;
+  background: var(--color-void);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.memory-lightbox__img {
+  max-width: 100%;
+  max-height: 560px;
+  object-fit: contain;
+}
+
+.memory-lightbox__details {
+  padding: var(--space-6);
+}
+
+.memory-lightbox__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.memory-lightbox__date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.memory-lightbox__title {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.memory-lightbox__desc {
+  font-size: var(--text-base);
+  color: var(--color-text-dim);
+  line-height: var(--leading-normal);
+  margin: 0;
+}
+
+/* ── RESPONSIVE ADAPTATIONS ─────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .memories-timeline__stem {
+    left: 24px;
+    transform: none;
+  }
+
+  .memory-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-left: 60px;
+    margin-bottom: var(--space-16);
+  }
+
+  /* Reset odd/even columns so image is always on top on mobile */
+  .memory-row .memory-col--media,
+  .memory-row--reverse .memory-col--media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .memory-row .memory-col--story,
+  .memory-row--reverse .memory-col--story {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .memory-node {
+    left: 24px;
+    top: 40px;
+    transform: translate(-50%, 0);
+    width: 36px;
+    height: 36px;
+  }
+
+  .memory-frame__inner {
+    height: 280px;
+  }
+}
+
+@media (max-width: 640px) {
+  .memories-timeline__stem {
+    display: none;
+  }
+
+  .memory-row {
+    padding-left: 0;
+  }
+
+  .memory-node {
+    display: none;
+  }
+
+  .memories-cta__inner {
+    padding: var(--space-12) var(--space-5);
+  }
+
+  .memories-cta__actions {
+    flex-direction: column;
+  }
+
+  .memories-cta__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

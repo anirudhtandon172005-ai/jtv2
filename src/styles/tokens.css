@@ -54,6 +54,7 @@
   --color-hero-title:       #FFFFFF;
   --color-nav-bg:           rgba(0, 0, 0, 0.88);
   --color-modal-overlay:    rgba(0, 0, 0, 0.85);
+  --banner-stats-bg:        linear-gradient(135deg, rgba(127, 30, 29, 0.45) 0%, rgba(18, 16, 13, 0.92) 100%);
 
   /* Semantic status */
   --color-success:          #2E8B57;
@@ -199,6 +200,7 @@
   --color-hero-title:       #15120E;
   --color-nav-bg:           rgba(251, 249, 245, 0.92);
   --color-modal-overlay:    rgba(21, 18, 14, 0.65);
+  --banner-stats-bg:        linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(243, 239, 232, 0.95) 100%);
 
   --color-border:           rgba(122, 78, 13, 0.12);
   --color-border-bright:    rgba(122, 78, 13, 0.28);
